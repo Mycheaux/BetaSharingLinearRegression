@@ -19,14 +19,14 @@ For defining new states, in general, developers can use [`AppState`](engine/READ
 which supports further communications, transitions, logging, and operations.
 
 #### AppState
-[`AppState`](engine/README.md#appstate-defining-custom-states) is the building block of FeatureCloud apps that covers
+[`AppState`](https://github.com/FeatureCloud/FeatureCloud/tree/master/FeatureCloud/app/engine#appstate-defining-custom-states) is the building block of FeatureCloud apps that covers
 all the scenarios with the verifying mechanism. Each state of 
-the app should extend [`AppState`](engine/README.md#appstate-defining-custom-states), which is an abstract class with two specific abstract methods:
-- [`register`](engine/README.md#registering-a-specific-transition-for-state-register_transition):
+the app should extend [`AppState`](https://github.com/FeatureCloud/FeatureCloud/tree/master/FeatureCloud/app/engine#appstate-defining-custom-states), which is an abstract class with two specific abstract methods:
+- [`register`](https://github.com/FeatureCloud/FeatureCloud/tree/master/FeatureCloud/app/engine/README.md#registering-a-specific-transition-for-state-register_transition):
 should be implemented by apps to register possible transitions between the current state to other states.
 This method is part of verifying mechanism in FeatureCloud apps that ensures logically eligible roles can participate in the current state
 and transition to other ones.
-- [`run`](engine/README.md#executing-states-computation-run): executes all operations and calls for communication between FeatureCloud clients.
+- [`run`](https://github.com/FeatureCloud/FeatureCloud/tree/master/FeatureCloud/app/engine/README.md#executing-states-computation-run): executes all operations and calls for communication between FeatureCloud clients.
 `run` is another part of the verification mechanism in the FeatureCloud library that ensures the transitions to other states are logically correct
 by returning the name of the next state.
 
@@ -56,8 +56,7 @@ developers should provide the following files.
 For dockerizing apps, regardless of their applications, there should be some specific files:
 
 1. [Dockerfile](Dockerfile)
-2. [build.sh](build.sh)
-3. [server-config](server_config)
+2. [server-config](server_config)
    - [docker-entrypoint.sh](server_config/docker-entrypoint.sh)
    - [nginx](server_config/nginx)
    - [supervisord.conf](server_config/supervisord.conf)
@@ -84,11 +83,11 @@ from engine.app import app
 
 server = Bottle()
 ```
-Here we imported `dice` app from our [`apps`](apps/README.md) package, which because of putting 
-[`app_state`](engine/README.md#registering-states-to-the-app-app_state) on top of state classes, 
-merely importing the states and registering them into the [`app` instance](engine/README.md#app-instance).     
+One can implement desired states in [`states.py`](states.py) and import it, which because of putting 
+[`app_state`](https://github.com/FeatureCloud/FeatureCloud/tree/master/FeatureCloud/app/engine/README.md#registering-states-to-the-app-app_state) on top of state classes, 
+merely importing the states and registering them into the [`app` instance](https://github.com/FeatureCloud/FeatureCloud/tree/master/FeatureCloud/app/engine/README.md#app-instance).     
 
-For running the app, inside a docker container, [`app.register()`](engine/README.md#registering-all-transitions-appregister)
+For running the app, inside a docker container, [`app.register()`](https://github.com/FeatureCloud/FeatureCloud/tree/master/FeatureCloud/app/engine/README.md#registering-all-transitions-appregister)
 should be called to register and verify all transitions; next, api and servers should mount at corresponding paths; and finally
 the server is ready to run the app.
 
@@ -118,7 +117,7 @@ And the rest should be all other app-required libraries.
 
 ##### config.yml
 Each app may need some hyper-parameters or arguments that the end-users should provide. Such data should be included
-in [`config.yml`](apps/README.md#config-file), which should be read and interpreted by the app. 
+in [`config.yml`](https://github.com/FeatureCloud/FeatureCloud/tree/master/FeatureCloud/app#config-file-configyml), which should be read and interpreted by the app. 
 
 ### Run YOUR_APPLICATION
 
