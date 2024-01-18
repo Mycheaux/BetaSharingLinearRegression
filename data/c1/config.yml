@@ -1,0 +1,7 @@
+train: train.csv
+test: test.csv
+target_value: target_label
+sep: ','
+max_iter: 1
+exact: True
+output: output.csv
