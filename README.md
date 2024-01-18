@@ -1,5 +1,5 @@
-# FeatureCloud Beta Sharing Linear Regression
-In This app, only exact or inexact weighted slopes and intercepts (betas or coefficients) and the total exact or inexact weight of each client are shared. 
+# FeatureCloud Beta Sharing Federated Linear Regression
+In this federated linear regression app, only exact or inexact weighted slopes and intercepts (betas or coefficients) and the total exact or inexact weight of each client are shared. 
 The config file expects the following structure: 
 train: train.csv
 test: test.csv
